@@ -160,4 +160,15 @@ UserSchema.statics.findAllWithDeleted = async function () {
     }
 }
 
+UserSchema.statics.register = async function ({ data }) {
+    try {
+        const user = await new this(data).save();
+
+        return user;
+    }
+    catch (err) {
+        console.error(err);
+    }
+}
+
 module.exports = UserSchema;

@@ -23,7 +23,7 @@ const UserEntity = {
         default: "",
     },
     gender: {
-        type: Boolean,
+        type: Number,
         default: 0 //0: male, 1: female, 2: other
     }
 }
