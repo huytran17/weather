@@ -9,6 +9,7 @@ const UserEntity = {
     email: {
         type: String,
         trim: true,
+        unique: [true, "Đã tồn tại."],
         required: [true, "Không được để trống."]
     },
     password: {

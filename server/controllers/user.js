@@ -1,8 +1,10 @@
-const { User } = require("../database/models")
+const { UserModel } = require("../database/models")
 
-module.exports.getAll = (req, res) => {
+module.exports.getAll = async (req, res) => {
     try {
-        res.send({ message: "Call getAll method from UserController" })
+        const users = await UserModel.find().exec();
+
+        res.send({ users })
     } catch (err) {
         console.log(err);
     }

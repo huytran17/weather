@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { QuoteEntity } = require('../entities')
-const { UseMongooseDelete } = require('../../plugins')
+const mongoose_delete = require('mongoose-delete')
 
 const QuoteSchema = new Schema(QuoteEntity, { timestamp: true });
 
-UseMongooseDelete(QuoteSchema, {
-    overrideMethods: "all"
-})
+QuoteSchema.plugin(mongoose_delete, { overrideMethods: "all" })
 
 module.exports = QuoteSchema;

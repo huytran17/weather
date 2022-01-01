@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { PostEntity } = require("../entities")
-const { UseMongooseDelete } = require('../../plugins')
+const mongoose_delete = require('mongoose-delete')
 
 const PostSchema = new Schema(PostEntity, { timestamp: true })
 
-UseMongooseDelete(PostSchema, {
-    overrideMethods: "all"
-})
+PostSchema.plugin(mongoose_delete, { overrideMethods: "all" })
 
 module.exports = PostSchema;
