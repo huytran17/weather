@@ -1,8 +1,10 @@
 const mongoose_delete = require('mongoose-delete');
 
-module.exports = (schema, options) => {
+const UseMongooseDelete = (schema, options) => {
     schema.plugin(mongoose_delete, {
         deletedAt: true,
         options
     })
 }
+
+module.exports = UseMongooseDelete;

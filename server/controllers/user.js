@@ -1,3 +1,5 @@
+const { User } = require("../database/models")
+
 module.exports.getAll = (req, res) => {
     try {
         res.send({ message: "Call getAll method from UserController" })

@@ -1,5 +1,5 @@
-const UserShema = require('./user')
+const UserSchema = require('./user')
 
 module.exports = Object.freeze({
-    UserShema
+    UserSchema
 })
