@@ -5,7 +5,7 @@ const { UseMongooseDelete } = require('../../plugins')
 
 const QuoteSchema = new Schema(QuoteEntity, { timestamp: true });
 
-UseMongooseDelete(QuoteEntity, {
+UseMongooseDelete(QuoteSchema, {
     overrideMethods: "all"
 })
 
