@@ -25,7 +25,7 @@ UserSchema.pre("save", async function (next) {
     next();
 });
 
-UserSchema.pre("findOneAndUpdateWithDeleted", async function (next) {
+UserSchema.pre("findOneAndUpdate", async function (next) {
     const data_update = { ...this.getUpdate() }
 
     if (data_update.password) {
@@ -163,6 +163,48 @@ UserSchema.statics.findAllWithDeleted = async function () {
 UserSchema.statics.register = async function ({ data }) {
     try {
         const user = await new this(data).save();
+
+        return user;
+    }
+    catch (err) {
+        console.error(err);
+    }
+}
+
+UserSchema.statics.update = async function (id, data) {
+    try {
+        const user =
+            await this.findOneAndUpdate({ _id: id }, data, {
+                new: true
+            })
+                .exec();
+
+        return user;
+    }
+    catch (err) {
+        console.error(err);
+    }
+}
+
+UserSchema.statics.softDelete = async function (id) {
+    try {
+        const user =
+            await this.find({ id })
+                .delete()
+                .exec();
+
+        return user;
+    }
+    catch (err) {
+        console.error(err);
+    }
+}
+
+UserSchema.statics.hardDelete = async function (id) {
+    try {
+        const user =
+            await this.deleteOne({ id })
+                .exec();
 
         return user;
     }
