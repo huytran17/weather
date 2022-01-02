@@ -12,6 +12,10 @@ const RoomEntity = {
         ref: "User",
         required: [true, "Không được để trống."]
     }],
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    }
 }
 
 module.exports = RoomEntity;
