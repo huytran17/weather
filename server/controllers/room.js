@@ -36,9 +36,9 @@ module.exports.findByName = async (req, res) => {
 
 module.exports.findByMember = async (req, res) => {
     try {
-        const { member_id } = req.params;
+        const { id } = req.params;
 
-        const room = await RoomModel.findByMember(member_id);
+        const room = await RoomModel.findByMember({ member_id: id });
 
         res.json({ room })
     } catch (err) {
