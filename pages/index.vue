@@ -1,15 +1,15 @@
 <template>
-  <h1>Test</h1>
+  <div class="container">
+    <Weather />
+  </div>
 </template>
 
 <script>
-import axios from 'axios'
+import Weather from '@/components/Weather'
+
 export default {
-  created() {
-    axios.get('/api/users').then((response) => {
-      console.log(response)
-    })
-  },
+  name: 'AppIndex',
+  components: { Weather },
 }
 </script>
 
