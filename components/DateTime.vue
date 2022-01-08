@@ -17,7 +17,7 @@
           </div>
         </v-card-title>
         <div class=" pb-5 d-flex justify-center">
-          <clock :time="time"></clock>
+          <clock :time="time" border="1px solid #4CAF50" color="#000000" bg="#ffffff"></clock>
         </div>
       </v-img>
     </v-card>
