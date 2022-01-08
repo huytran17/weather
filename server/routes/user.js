@@ -9,7 +9,7 @@ const {
     findByName,
     findAllDeleted,
     findAllWithDeleted,
-    register,
+    insert,
     softDelete,
     hardDelete
 } = require('../controllers/user')
@@ -17,7 +17,7 @@ const {
 userRouter
     .route("/")
     .get(findAll)
-    .post(register);
+    .post(insert);
 
 userRouter
     .route("/paginated")
