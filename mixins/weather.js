@@ -1,11 +1,6 @@
-import { mapGetters, mapActions, mapMutations } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
-    data() {
-        return {
-
-        }
-    },
     computed: {
         ...mapGetters({
             weather: "weather/weather",
