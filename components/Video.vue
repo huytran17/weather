@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'Music',
+  name: 'Video',
   data() {
     return {
       image: require('@/assets/images/datetime.jpg'),
