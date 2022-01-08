@@ -1,15 +1,31 @@
 <template>
   <div class="container">
-    <Weather />
+    <v-row>
+      <v-col cols="12">
+        <Weather />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" sm="6">
+        <DateTime />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12">
+        <Video />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
 import Weather from '@/components/Weather'
+import DateTime from '@/components/DateTime'
+import Video from '@/components/Video'
 
 export default {
   name: 'AppIndex',
-  components: { Weather },
+  components: { Weather, DateTime, Video },
 }
 </script>
 
