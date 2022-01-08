@@ -33,8 +33,15 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/moment'
   ],
+
+  moment: {
+    defaultLocale: 'vi',
+    defaultTimezone: 'Vietnam/Ho_Chi_Minh',
+    locales: ['vi']
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
