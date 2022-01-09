@@ -37,6 +37,7 @@ export default {
   },
   created() {
     setInterval(async () => {
+      await this.GET_DATE()
       await this.GET_TIME()
     }, 1000)
   },
