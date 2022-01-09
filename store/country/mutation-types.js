@@ -1,4 +1,3 @@
 export const MutationTypes = {
   GET_COUNTRY_CODES: "GET_COUNTRY_CODES",
-  GET_COUNTRY_FLAGS: "GET_COUNTRY_FLAGS",
 }
