@@ -5,7 +5,7 @@
         <v-card-title>
           <v-img :src="icon_link" max-width="60" max-height="60" />
           <span class="text-sm-h4 text-h6">
-            {{ celsius_degree }}&#176;
+            {{ celsius_degree }}&#176;C
             <span>{{ city_name }}</span>
             <span> - </span>
             <span>{{ country }}</span>
@@ -40,9 +40,9 @@
           <v-row class="text-center">
             <v-col cols="6" sm="2">
               <div>
-                <span>{{ temp_min }}&#176;</span>
+                <span>{{ temp_min }}&#176;C</span>
                 <span>/</span>
-                <span>{{ temp_max }}&#176;</span>
+                <span>{{ temp_max }}&#176;C</span>
               </div>
               <div>
                 <span class="text-caption">thấp nhất/cao nhất</span>
