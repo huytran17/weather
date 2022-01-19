@@ -1,4 +1,4 @@
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
     computed: {
@@ -6,12 +6,12 @@ export default {
             weather: "weather/weather",
             k_to_c: "weather/k_to_c",
             m_to_km: "weather/m_to_km",
+            cities: "weather/cities",
+            city_id: "weather/city_id",
+            city_name: "weather/city_name",
         }),
         weather_data() {
             return _.get(this.weather, 'weather[0]', null)
-        },
-        city_name() {
-            return _.get(this.weather, "name", "")
         },
         celsius_degree() {
             return this.round(_.get(this.weather, "main.temp", 0) + this.k_to_c)
@@ -79,7 +79,12 @@ export default {
     },
     methods: {
         ...mapActions({
-            GET_WEATHER: "weather/GET_WEATHER"
+            GET_WEATHER: "weather/GET_WEATHER",
+            GET_CITIES: "weather/GET_CITIES",
+        }),
+        ...mapMutations({
+            SET_CITY_ID: "weather/SET_CITY_ID",
+            SET_CITY_NAME: "weather/SET_CITY_NAME",
         }),
         round(value) {
             return Math.round(value)
@@ -94,7 +99,7 @@ export default {
             if (seconds < 10) seconds = `0${seconds}`
 
             return { hours, minutes, seconds }
-        }
+        },
     },
     filters: {
         capitalize: function (value) {

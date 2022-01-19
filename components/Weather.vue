@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-card height="auto" elevation="0">
+  <div class="weather-wrapper">
+    <v-card height="auto" elevation="0" @click="open_dialog = true">
       <v-img class="white--text" :lazy-src="image_weather" :src="image_weather">
         <v-card-title>
           <v-img :src="icon_link" max-width="60" max-height="60" />
@@ -136,23 +136,43 @@
         </v-card-text>
       </v-img>
     </v-card>
+
+    <div class="dialog-wrapper">
+      <WeatherDialog
+        :open_dialog="open_dialog"
+        @close-dialog="
+          (status) => {
+            closeDialog(status)
+          }
+        "
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import weatherMixins from '~/mixins/weather'
+import WeatherDialog from '@/components/WeatherDialog'
 
 export default {
   name: 'Wheather',
   mixins: [weatherMixins],
+  components: { WeatherDialog },
   data() {
     return {
       image_weather: require('@/assets/images/weather.jpg'),
+      open_dialog: false,
     }
+  },
+  methods: {
+    closeDialog(status) {
+      this.open_dialog = status
+    },
   },
   async fetch() {
     try {
       await this.GET_WEATHER()
+      await this.GET_CITIES()
     } catch (e) {
       console.error(e)
     }
@@ -166,5 +186,8 @@ export default {
 }
 .description {
   text-transform: capitalize;
+}
+.weather-wrapper:hover {
+  background-color: red !important;
 }
 </style>
